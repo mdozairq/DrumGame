@@ -41,6 +41,8 @@ document.addEventListener("keydown", function(event){
 	makeSound(event.key);
 	var buttonInnerHTML = this.innerHTML;
 	makeSound(buttonInnerHTML);
+	buttonAnimatiom(event.key);
+
 }) ;
 
 function makeSound(key){
@@ -77,3 +79,11 @@ function makeSound(key){
 		default:
 	}
 }
+
+function buttonAnimatiom(currentKey){
+	var activeButton = document.querySelector(".",+currentKey);
+	activeButton.classList.add("pressed");
+	setTimeout(function() {
+		activeButton.classList.remove("pressed");
+	}, 100);
+ }
